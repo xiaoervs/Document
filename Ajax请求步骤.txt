@@ -1,7 +1,7 @@
-/µÚÒ»²½£¬´´½¨XMLHttpRequest¶ÔÏó
+//ç¬¬ä¸€æ­¥ï¼Œåˆ›å»ºXMLHttpRequestå¯¹è±¡
 var xmlHttp = new XMLHttpRequest();
 function CommentAll() {
-    //µÚ¶ş²½£¬×¢²á»Øµ÷º¯Êı
+    //ç¬¬äºŒæ­¥ï¼Œæ³¨å†Œå›è°ƒå‡½æ•°
     xmlHttp.onreadystatechange =callback1;
     //{
     //    if (xmlHttp.readyState == 4)
@@ -10,24 +10,24 @@ function CommentAll() {
 
     //        }
     //}
-    //µÚÈı²½£¬ÅäÖÃÇëÇóĞÅÏ¢£¬open(),get
-    //getÇëÇóÏÂ²ÎÊı¼ÓÔÚurlºó£¬.ashx?methodName = GetAllComment&str1=str1&str2=str2
+    //ç¬¬ä¸‰æ­¥ï¼Œé…ç½®è¯·æ±‚ä¿¡æ¯ï¼Œopen(),get
+    //getè¯·æ±‚ä¸‹å‚æ•°åŠ åœ¨urlåï¼Œ.ashx?methodName = GetAllComment&str1=str1&str2=str2
     xmlHttp.open("post", "/ashx/myzhuye/Detail.ashx?methodName=GetAllComment", true);
 
-    //postÇëÇóÏÂĞèÒªÅäÖÃÇëÇóÍ·ĞÅÏ¢
+    //postè¯·æ±‚ä¸‹éœ€è¦é…ç½®è¯·æ±‚å¤´ä¿¡æ¯
     //xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    //µÚËÄ²½£¬·¢ËÍÇëÇó,postÇëÇóÏÂ£¬Òª´«µİµÄ²ÎÊı·ÅÕâ
+    //ç¬¬å››æ­¥ï¼Œå‘é€è¯·æ±‚,postè¯·æ±‚ä¸‹ï¼Œè¦ä¼ é€’çš„å‚æ•°æ”¾è¿™
     xmlHttp.send("methodName = GetAllComment&str1=str1&str2=str2");//"
 
 }
-//µÚÎå²½£¬´´½¨»Øµ÷º¯Êı
+//ç¬¬äº”æ­¥ï¼Œåˆ›å»ºå›è°ƒå‡½æ•°
 function callback1() {
     if (xmlHttp.readyState == 4)
         if (xmlHttp.status == 200) {
-            //È¡µÃ·µ»ØµÄÊı¾İ
+            //å–å¾—è¿”å›çš„æ•°æ®
             var data = xmlHttp.responseText;
-            //json×Ö·û´®×ªÎªjson¸ñÊ½
+            //jsonå­—ç¬¦ä¸²è½¬ä¸ºjsonæ ¼å¼
             data = eval(data);
             $.each(data,
                 function(i, v) {
@@ -36,8 +36,3 @@ function callback1() {
         }
 }
 
---------------------- 
-×÷Õß£ºÇå--Ë® 
-À´Ô´£ºCSDN 
-Ô­ÎÄ£ºhttps://blog.csdn.net/yh12346789/article/details/79271812 
-°æÈ¨ÉùÃ÷£º±¾ÎÄÎª²©Ö÷Ô­´´ÎÄÕÂ£¬×ªÔØÇë¸½ÉÏ²©ÎÄÁ´½Ó£¡
